@@ -1,7 +1,7 @@
 method: bayes
 metric:
   goal: maximize
-  name: cats_macro_auc
+  name: ents_f
 command:
   - ${env}
   - ${interpreter}
