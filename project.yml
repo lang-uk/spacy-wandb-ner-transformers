@@ -64,7 +64,7 @@ commands:
   - name: "train-search"
     help: "Run customized training runs for hyperparameter search using [Weights & Biases Sweeps](https://docs.wandb.ai/guides/sweeps)"
     script:
-      - "python ./scripts/sweeps_using_code.py configs/${vars.default_config} training/"
+      - "python ./scripts/sweeps_using_config.py configs/${vars.default_config} training/"
     deps:
       - "assets/NER_UK/train/"
       - "assets/NER_UK/test/"
