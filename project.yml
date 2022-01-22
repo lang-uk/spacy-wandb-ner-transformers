@@ -34,7 +34,6 @@ commands:
     help: "Install dependencies and log in to Weights & Biases"
     script:
       - "pip install -r requirements.txt"
-      - "cp /gdrive/MyDrive/SpaCyResults/ner_uk_xlm_roberta_wandb.config configs/"
       - "pip install --upgrade spacy spacy-transformers"
       - "wandb login"
     deps:
