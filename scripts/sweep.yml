@@ -1,0 +1,29 @@
+method: bayes
+metric:
+  goal: maximize
+  name: cats_macro_auc
+command:
+  - ${env}
+  - ${interpreter}
+  - scripts/sweeps_using_config.py
+  - ./configs/ner_uk_xlm_roberta_wandb.config
+  - ./training
+parameters:
+  components.ner.model.hidden_width:
+    values:
+    - 64
+    - 128
+    - 256
+  components.ner.model.maxout_pieces:
+    values:
+    - 1
+    - 2
+    - 3
+  training.dropout:
+    distribution: uniform
+    max: 0.5
+    min: 0.05
+  training.optimizer.learn_rate:
+    distribution: uniform
+    max: 1e-3
+    min: 5e-6

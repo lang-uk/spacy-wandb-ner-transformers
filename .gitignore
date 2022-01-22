@@ -1,0 +1,6 @@
+assets
+training
+wandb
+configs/*
+!configs/ner_uk_xlm_roberta_wandb.config
+project.lock
