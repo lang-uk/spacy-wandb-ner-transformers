@@ -42,16 +42,16 @@ commands:
   - name: "data"
     help: "Extract the gold-standard annotations"
     script:
-      - "mkdir -p /content/wandb/assets/NER_UK/test/"
-      - "mkdir -p /content/wandb/assets/NER_UK/train/"
-      - "python -m spacy convert /gdrive/MyDrive/NER_UK/fixed-split/test.iob /content/wandb/assets/NER_UK/test/"
-      - "python -m spacy convert /gdrive/MyDrive/NER_UK/fixed-split/train.iob /content/wandb/assets/NER_UK/train/"
+      - "mkdir -p assets/NER_UK/test/"
+      - "mkdir -p assets/NER_UK/train/"
+      - "python -m spacy convert /gdrive/MyDrive/NER_UK/fixed-split/test.iob assets/NER_UK/test/"
+      - "python -m spacy convert /gdrive/MyDrive/NER_UK/fixed-split/train.iob assets/NER_UK/train/"
     deps:
       - "/gdrive/MyDrive/NER_UK/fixed-split/test.iob"
       - "/gdrive/MyDrive/NER_UK/fixed-split/train.iob"
     outputs:
-      - "/content/wandb/assets/NER_UK/train/"
-      - "/content/wandb/assets/NER_UK/test/"
+      - "assets/NER_UK/train/"
+      - "assets/NER_UK/test/"
 
   - name: "train"
     help: "Train a model using the default config"
@@ -64,7 +64,7 @@ commands:
   - name: "train-search"
     help: "Run customized training runs for hyperparameter search using [Weights & Biases Sweeps](https://docs.wandb.ai/guides/sweeps)"
     script:
-      - "python ./scripts/sweeps_using_config.py configs/${vars.default_config} training/"
+      - "python ./scripts/sweeps_using_config.py configs/${vars.default_config} scripts/sweep.yml training/"
     deps:
       - "assets/NER_UK/train/"
       - "assets/NER_UK/test/"
