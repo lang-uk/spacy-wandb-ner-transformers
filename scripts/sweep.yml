@@ -5,19 +5,20 @@ metric:
 parameters:
   components.ner.model.hidden_width:
     values:
-    - 64
     - 128
+    - 192
     - 256
   components.ner.model.maxout_pieces:
     values:
-    - 1
     - 2
     - 3
   training.dropout:
-    distribution: uniform
-    max: 0.5
-    min: 0.05
+    values:
+    - 0.05
+    - 0.1
+    - 0.2
   training.optimizer.learn_rate:
-    distribution: uniform
-    max: 1e-3
-    min: 5e-6
+    values:
+    - 1e-5
+    - 5e-4
+    - 1e-4
