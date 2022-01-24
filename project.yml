@@ -3,7 +3,7 @@ description: "Use [Weights & Biases](https://www.wandb.com/) for logging of trai
 
 # Variables can be referenced across the project.yml using ${vars.var_name}
 vars:
-  default_config: "ner_uk_xlm_roberta_wandb.config"
+  default_config: "ner_uk_roberta_wandb.config"
 
 # These are the directories that the project needs. The project CLI will make
 # sure that they always exist.
@@ -64,7 +64,7 @@ commands:
   - name: "train-search"
     help: "Run customized training runs for hyperparameter search using [Weights & Biases Sweeps](https://docs.wandb.ai/guides/sweeps)"
     script:
-      - "python ./scripts/sweeps_using_config.py configs/${vars.default_config} scripts/sweep.yml training/"
+      - "python ./scripts/sweeps_using_config.py configs/${vars.default_config} scripts/sweep_roberta.yml training/"
     deps:
       - "assets/NER_UK/train/"
       - "assets/NER_UK/test/"
