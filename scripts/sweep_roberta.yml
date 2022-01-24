@@ -6,15 +6,11 @@ parameters:
   components.ner.model.hidden_width:
     values:
     - 128
-    - 192
-    - 256
   components.ner.model.maxout_pieces:
     values:
     - 2
-    - 3
   training.dropout:
     values:
-    - 0.05
     - 0.1
     - 0.2
   training.optimizer.learn_rate:
@@ -22,3 +18,6 @@ parameters:
     - 1e-5
     - 5e-4
     - 1e-4
+    - 5e-4
+    - 1e-3
+    - 5e-3

@@ -3,4 +3,5 @@ training
 wandb
 configs/*
 !configs/ner_uk_xlm_roberta_wandb.config
+!configs/ner_uk_roberta_wandb.config
 project.lock
